@@ -13,7 +13,6 @@ public class NoteConverter {
                 .created(note.getCreated())
                 .modified(note.getModified())
                 .id(note.getId())
-                .originalId(note.getOriginalId())
                 .build();
     }
 
