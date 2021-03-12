@@ -16,6 +16,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@CrossOrigin
 public class NoteController {
 
     private final NoteServiceI noteService;
@@ -37,7 +38,7 @@ public class NoteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/note/{id}/history")
+    @GetMapping("/note/history/{id}")
     public List<NoteDto> getHistoryById(@PathVariable Long id){
         return noteService.historyById(id);
     }

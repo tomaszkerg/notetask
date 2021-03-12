@@ -86,7 +86,8 @@ public class NoteService implements NoteServiceI {
     @Override
     public List<NoteDto> historyById(Long id) {
         log.info("looking history for note with id {}",id);
-        return noteRepository.findAllByOriginalId(id)
+        Long oriId = noteRepository.getOne(id).getOriginalId();
+        return noteRepository.findAllByOriginalId(oriId)
                 .stream().map(NoteConverter::toDto)
                 .collect(Collectors.toList());
     }
